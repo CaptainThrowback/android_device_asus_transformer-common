@@ -112,6 +112,7 @@ BOARD_HARDWARE_CLASS := device/asus/transformer-common/cmhw/
 
 # TWRP
 TW_THEME := landscape_hdpi
+TW_EXCLUDE_TWRPAPP := true
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -121,3 +122,5 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TARGET_RECOVERY_FSTAB := device/asus/transformer-common/ramdisk/fstab.cardhu
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/transformer-common/recovery/recovery.mk
+TARGET_RECOVERY_DEVICE_MODULE += tzdata
+TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(OUT)/system/usr/share/zoneinfo/tzdata
