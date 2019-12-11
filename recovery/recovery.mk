@@ -6,14 +6,14 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \
 		$(recovery_ramdisk) \
 		$(TF_BLOBIFIER) \
 		$(recovery_kernel)
-	@echo ----- Compressing recovery ramdisk with lzma ------
-	rm -f $(recovery_uncompressed_ramdisk).lzma
+	@echo -e ${CL_CYN}----- Compressing recovery ramdisk with lzma ------${CL_RST}
+	$(hide) rm -f $(recovery_uncompressed_ramdisk).lzma
 	$(LZMA_BIN) $(recovery_uncompressed_ramdisk)
 	$(hide) cp $(recovery_uncompressed_ramdisk).lzma $(recovery_ramdisk)
-	@echo ----- Making recovery image ------
-	$(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) --output $@.orig
+	@echo -e ${CL_GRN}----- Making recovery image ------${CL_RST}
+	$(hide) $(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) --output $@.orig
 	$(TF_BLOBIFIER) $@ SOS $@.orig
-	@echo ----- Made recovery image -------- $@
+	@echo -e ${CL_GRN}----- Made recovery image --------${CL_RST}
 	$(hide) $(call assert-max-image-size,$@,$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
 
 
