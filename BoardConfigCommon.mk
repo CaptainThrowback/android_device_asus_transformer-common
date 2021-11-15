@@ -122,5 +122,3 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TARGET_RECOVERY_FSTAB := device/asus/transformer-common/ramdisk/fstab.cardhu
 BOARD_CUSTOM_BOOTIMG_MK := device/asus/transformer-common/recovery/recovery.mk
-TARGET_RECOVERY_DEVICE_MODULE += tzdata
-TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(OUT)/system/usr/share/zoneinfo/tzdata
